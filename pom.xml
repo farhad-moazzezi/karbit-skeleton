@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.karbit.skeleton</groupId>
+	<artifactId>skeleton</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<modules>
+		<module>base-model</module>
+		<module>mongo</module>
+		<module>validate</module>
+		<module>post</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!--karbit family dependencies-->
+			<dependency>
+				<groupId>org.karbit.skeleton</groupId>
+				<artifactId>base-model</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>org.karbit.skeleton</groupId>
+				<artifactId>mongo</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>org.karbit.skeleton</groupId>
+				<artifactId>validate</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>org.karbit.skeleton</groupId>
+				<artifactId>post</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<!--spring families dependencies-->
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-mongodb</artifactId>
+				<version>3.4.3</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-commons</artifactId>
+				<version>2.7.3</version>
+			</dependency>
+			<!--other dependencies-->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.24</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>jakarta.validation</groupId>
+				<artifactId>jakarta.validation-api</artifactId>
+				<version>3.0.2</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
