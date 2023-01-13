@@ -22,11 +22,7 @@ public abstract class Post extends BaseMongoEntity {
 	@Exclude
 	private String content;
 
-	@Indexed
-	private String authorId;
-
-	@Exclude
-	private String authorNickName;
+	private Author author;
 
 	@Indexed
 	private PostStatus status;

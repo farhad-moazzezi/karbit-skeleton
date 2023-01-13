@@ -13,13 +13,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PostDao<P extends Post> extends MongoRepository<P, String> {
-	P findByUniqueId(String uniqueId);
+	Optional<P> findByUniqueId(String uniqueId);
 
-	List<P> findByStatusIn(Set<PostableStatus> status);
+	List<P> findByStatusInOrderByCreationDateDesc(Set<? extends PostableStatus> status);
 
-	List<P> findByStatusIn(Set<PostableStatus> status, Pageable pageable);
+	List<P> findByStatusInOrderByCreationDateDesc(Set<? extends PostableStatus> status, Pageable pageable);
 
-	List<P> findByAuthorIdAndStatusIn(String userId, Set<PostableStatus> status, Pageable pageable);
+	List<P> findByAuthorUserIdAndStatusInOrderByCreationDateDesc(String userId, Set<? extends PostableStatus> status, Pageable pageable);
 
-	List<P> findByTitleLikeAndStatusIn(String title, Set<PostableStatus> status, Pageable pageable);
+	List<P> findByTitleLikeAndStatusInOrderByCreationDateDesc(String title, Set<? extends PostableStatus> status, Pageable pageable);
 }

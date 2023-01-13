@@ -23,6 +23,7 @@ public abstract class BaseMongoEntity implements Serializable {
 	@Indexed(unique = true)
 	private String uniqueId = UUID.randomUUID().toString();
 
+	@Indexed
 	private long creationDate = new Date().getTime();
 
 	public BaseMongoEntity() {
