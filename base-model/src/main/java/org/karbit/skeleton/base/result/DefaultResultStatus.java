@@ -1,6 +1,5 @@
 package org.karbit.skeleton.base.result;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class DefaultResultStatus extends AbstractResultStatus {

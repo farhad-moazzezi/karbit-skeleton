@@ -1,13 +1,18 @@
 package org.karbit.skeleton.base.result;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Properties;
+import java.util.ResourceBundle;
 import java.util.Set;
 
 public abstract class AbstractResultStatus {
 
-	protected final static String DEFAULT_MESSAGE_PROPERTIES = "default-message.properties";
+	protected final static String DEFAULT_MESSAGE_PROPERTIES = "default-message";
 
 	protected int statusCode;
 
@@ -45,8 +50,11 @@ public abstract class AbstractResultStatus {
 		bundles.addAll(getBundleName());
 		bundles.forEach(bundleName -> {
 			try {
-				properties.load(this.getClass().getClassLoader().getResourceAsStream(bundleName));
-			} catch (IOException e) {
+				ResourceBundle resourceBundle = ResourceBundle.getBundle(bundleName, Locale.getDefault(), this.getClass().getClassLoader());
+				Enumeration<String> keys = resourceBundle.getKeys();
+				ArrayList<String> keysList = Collections.list(keys);
+				keysList.forEach(key -> properties.put(key, resourceBundle.getString(key)));
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		});
