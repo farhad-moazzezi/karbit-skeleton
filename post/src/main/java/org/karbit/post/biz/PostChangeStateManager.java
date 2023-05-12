@@ -12,6 +12,6 @@ public interface PostChangeStateManager<P extends Post> extends PostManager<P> {
 		P post = getDao().findByUniqueId(postId).orElseThrow(() -> new PostNotFoundException("could not found post by id -> postId : " + postId));
 		post.getStatus().validateNextState(targetState);
 		post.setStatus(targetState);
-		getDao().save(post);
+		getDao().insert(post);
 	}
 }

@@ -49,7 +49,7 @@ public interface PostCreator<P extends Post> extends PostManager<P> {
 
 	default P save(P post) {
 		getLogger().debug("going to save post -> {}", post);
-		return getDao().save(post);
+		return getDao().insert(post);
 	}
 
 	default void defaultCheckingBeforeCreate(P post) {

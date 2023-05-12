@@ -13,7 +13,7 @@ import org.karbit.validate.impl.CellNumberValidatorImpl;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = CellNumberValidatorImpl.class)
-@Target(value = { ElementType.FIELD, ElementType.TYPE, ElementType.PARAMETER })
+@Target(value = { ElementType.METHOD, ElementType.FIELD, ElementType.TYPE, ElementType.PARAMETER })
 @Documented
 public @interface CellNumber {
 
