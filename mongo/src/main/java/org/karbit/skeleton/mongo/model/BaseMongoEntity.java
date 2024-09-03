@@ -2,6 +2,7 @@ package org.karbit.skeleton.mongo.model;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Date;
 import java.util.UUID;
 
@@ -27,6 +28,14 @@ public abstract class BaseMongoEntity implements Serializable {
 	private long creationDate = new Date().getTime();
 
 	public BaseMongoEntity() {
+	}
+
+	public Date getCreationDate() {
+		return Date.from(Instant.ofEpochMilli(creationDate));
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate.getTime();
 	}
 
 	public String toString() {

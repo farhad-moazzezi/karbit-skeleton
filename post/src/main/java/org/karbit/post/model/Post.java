@@ -1,5 +1,8 @@
 package org.karbit.post.model;
 
+import java.time.Instant;
+import java.util.Date;
+import java.util.Objects;
 import java.util.Set;
 
 import lombok.Data;
@@ -30,4 +33,12 @@ public abstract class Post extends BaseMongoEntity {
 	private Long lastModifyDate;
 
 	private Set<Tag> tags;
+
+	public Date getLastModifyDate() {
+		return Objects.nonNull(lastModifyDate) ? Date.from(Instant.ofEpochMilli(lastModifyDate)) : null;
+	}
+
+	public void setLastModifyDate(Date lastModifyDate) {
+		this.lastModifyDate = lastModifyDate.getTime();
+	}
 }

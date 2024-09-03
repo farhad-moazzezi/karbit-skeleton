@@ -45,4 +45,8 @@ public enum PostStatus implements PostableStatus {
 	public int getId() {
 		return id;
 	}
+
+	public static PostStatus of(Integer statusId) {
+		return Arrays.stream(PostStatus.values()).filter(status -> status.id == statusId).findFirst().orElseThrow(() -> new IllegalArgumentException("ca not find post status with id: " + statusId));
+	}
 }

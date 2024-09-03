@@ -1,7 +1,5 @@
 package org.karbit.skeleton.base.result;
 
-import java.util.Set;
-
 public class DefaultResultStatus extends AbstractResultStatus {
 	public static final DefaultResultStatus SUCCESS = new DefaultResultStatus(200000000, "success");
 
@@ -24,7 +22,8 @@ public class DefaultResultStatus extends AbstractResultStatus {
 	}
 
 	@Override
-	protected Set<String> getBundleName() {
-		return Set.of(DEFAULT_MESSAGE_PROPERTIES);
+	protected String[] getMessageResourceName() {
+		return new String[] { DEFAULT_MESSAGE_PROPERTIES };
 	}
+
 }
